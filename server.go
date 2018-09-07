@@ -12,18 +12,22 @@ func HandleConn(conn net.Conn) {
     defer conn.Close()
 
     //获取客户端的网络地址信息
+    fmt.Println("start parse connection ip address.")
     addr := conn.RemoteAddr().String()
+
     fmt.Println(addr, " conncet sucessful")
 
     buf := make([]byte, 2048)
 
     for {
         //读取用户数据
+        fmt.Println("start reading data from client...")
         n, err := conn.Read(buf)
         if err != nil {
             fmt.Println("err = ", err)
             return
         }
+        fmt.Println("read data successcul. data:")
         fmt.Printf("[%s]: %s\n", addr, string(buf[:n]))
         fmt.Println("len = ", len(string(buf[:n])))
 
