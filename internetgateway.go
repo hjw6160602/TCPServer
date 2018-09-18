@@ -56,7 +56,7 @@ func internetgateway() {
         }
 
         if scpd == nil || scpd.GetAction("AddPortMapping") != nil {
-            err := c.AddPortMapping("192.168.1.1", 60001, "TCP", 60001, "192.168.3.113", true, "PORT TEST", 0)
+            err := c.AddPortMapping("", 50001, "TCP", 60001, "192.168.3.113", true, "PORT TEST", 0)
             fmt.Println("AddPortMapping: ", err)
         }
 
